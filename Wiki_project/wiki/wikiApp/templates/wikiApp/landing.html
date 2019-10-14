@@ -1,0 +1,27 @@
+{% extends 'wikiApp/base_model1.html' %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Welcome {{user.username}}</h1>
+{% for entry in myEntries %}
+{{entry.entryName}}
+{{entry.entryInfo}}
+{% endfor %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Submit</button>
+</form>
+<br>
+<a href="{% url 'signUp' %}" id="btn1"><button>Sign Up </button></a>
+<a href="{% url 'logOut' %}" id="btn4"><button>Log Out</button></a>
+
+{% else %}
+<a href="{% url 'logIn' %}" id="btn2"><button>Log in</button></a>
+
+{% endif %}
+
+{% endblock %}

@@ -1,11 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', views.index, name=index),
-    path('landing', views.landing, name=landing),
-    path('edit', views.edit, name=edit),
-    path('logIn', views.logIn, nane=logIn),
-    path('logOut',views.logOut, name=logOut)
+    path('', views.index, name='index'),
+    path('landing/', views.landing, name='landing'),
+    path('edit/', views.edit, name='edit'),
+    path('logIn/', views.logIn, name='logIn'),
+    path('logOut/', views.logOut, name='logOut'),
+    path('signUp/', views.signUp, name='signUp')
 
 ]
